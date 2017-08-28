@@ -2,18 +2,15 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>我的个人主页</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<title>六个球面向对象1.0</title>
 	</head>
-	<style type="text/css">
-		html,body{
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			background-color: orange;
-		}
-	</style>
 	<body>
-		<h1>我的地盘我做主</h1>
-		<p>祝大家七夕节快乐</p>
 	</body>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var ball = new Circleball(20,30,100,true,0.005);
+		var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		ball.readin(arr);
+	</script>
 </html>
