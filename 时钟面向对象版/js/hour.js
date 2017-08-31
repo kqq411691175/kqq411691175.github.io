@@ -1,28 +1,24 @@
-function Hour(color) {
-    this.fillColor = color || 'red';
-    Control.call(this);
+//创建Hour构造函数
+function Hour(){
+	Second.call(this);
 }
-
-Hour.prototype = Object.create(Seconds.prototype);
-
-Hour.prototype.calcRenderArgs = function () {
-    var args = {};
-    args.duration = 43200;
-    args.zIndex = 17;
-
-    var time = new Date();
-    var h = time.getHours();
-    var m = time.getMinutes() * -1;
-    var s = time.getSeconds() * -1;
-    h = (h > 12 ? h - 12 : h) * -1;
-    args.delay = h *3600 - 3 * 3600 + m * 60 + s;
-    return args;
+Hour.prototype = Object.create(Second.prototype);
+Hour.prototype.constructor = Hour;
+Hour.prototype.renderSettings = function(){
+	var args = {};
+	args.zIndex = 7;
+	args.color = 'blue';
+	args.during = 60 * 60 * 12;
+	var time = new Date();
+	var h = time.getHours();
+	args.delay = (h *60*60* -1) - new Date().getMinutes()*60 - new Date().getSeconds();
+	return args;
 }
-
-Hour.prototype.calcLayoutArgs = function () {
-    var args = {};
-    args.radius = Control.radius * 0.7;
-    args.width = Control.radius * 0.9;
-    args.height = Control.radius * 0.04;
-    return args;
+Hour.prototype.layoutSettings = function(){
+	var args = {};
+	args.eleWScale = 0.02;
+	args.eleHScale = 0.5;
+	args.spanEleWScale = 0.02;
+	args.spanEleHScale = 0.3;
+	return args;
 }
