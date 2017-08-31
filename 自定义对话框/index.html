@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2-自定义Alert和Confirm</title>
+		<link rel="stylesheet" type="text/css" href="css/alert.css"/>
+		<link rel="stylesheet" type="text/css" href="css/confirm.css"/>
+		<script src="js/alert.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/confirm.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				box-sizing: border-box;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<p>点击删除1</p>
+		<p>点击删除2</p>
+		<p>点击删除3</p>
+		<p>点击删除4</p>
+		<p>点击删除5</p>
+		<p>点击删除6</p>
+	</body>
+	<script type="text/javascript">
+//		new Alert('确定要测试吗?',function(){
+//			document.body.style.backgroundColor = 'red';
+//		});
+		
+		
+		var ps = document.querySelectorAll('p');
+		Array.prototype.slice.apply(ps).forEach(function(p){
+			p.onclick = function(e){
+				new Confirm('确定要删除吗',function(){
+					new Alert('不删除');
+					document.body.style.backgroundColor = 'yellow'
+				},function(){
+					p.remove();
+					document.body.style.backgroundColor = 'orange'
+					new Alert('删除');
+				})
+				
+			}
+		})
+	</script>
+</html>
