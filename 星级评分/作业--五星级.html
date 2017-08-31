@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			span{
+				cursor: pointer;
+			}
+			p{
+				text-align: center;
+				font-size: 30px;
+			}
+			.xx{
+				color: red;
+			}
+			div{
+				width: 150px;
+				height: 100px;
+				border: 1px solid black;
+				position: absolute;
+				
+			}
+			div:nth-of-type(1){
+				top: 70px;
+				left: 800px;
+				display: none;
+			}
+			div:nth-of-type(2){
+				top: 70px;
+				left: 830px;
+				display: none;
+			}
+			div:nth-of-type(3){
+				top: 70px;
+				left: 860px;
+				display: none;
+			}
+			div:nth-of-type(4){
+				top: 70px;
+				left: 890px;
+				display: none;
+			}
+			div:nth-of-type(5){
+				top: 70px;
+				left: 920px;
+				display: none;
+			}
+			#p2{
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--☆☆☆☆☆★★★★★-->
+		<p>点击星星就能评分<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></p>
+		<p id="p2"></p>
+		<div class="d1">
+			<section class="xx">★一颗心</section>
+			很垃圾非常垃圾特别垃圾
+		</div>
+		<div class="d1">
+			<section class="xx">★★两颗心</section>
+			很垃圾非常垃圾
+		</div>
+		<div class="d1">
+			<section class="xx">★★★三颗心</section>
+			很一般非常一般特别一般
+		</div>
+		<div class="d1">
+			<section class="xx">★★★★四颗心</section>
+			很不错非常不错
+		</div>
+		<div class="d1">
+			<section class="xx">★★★★★五颗心</section>
+			很不错非常不错特别不错
+		</div>
+	</body>
+	<script type="text/javascript">
+		$('span').each(function(index){
+			$(this).mouseover(function(){
+				$('span').text('☆')
+				$(this).prevAll().addBack().text('★')
+				$('div').eq(index).css('display','block')
+			})
+			$(this).mouseout(function(){
+				$(this).prevAll().addBack().text('☆')
+				$('div').eq(index).css('display','none');
+			})
+			$(this).click(function(){
+				$('#p2').text($('div').eq(index).text());
+				$('div').eq(index).css('display','none');
+
+				$(this).mouseout(function(){
+					$(this).prevAll().addBack().text('★')
+				})
+			})
+		})
+	</script>
+</html>

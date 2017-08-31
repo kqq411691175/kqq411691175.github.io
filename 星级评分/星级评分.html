@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+				display: inline-block;
+			}
+			div{
+				width: 700px;
+				margin: 20px auto;
+			}
+			li{
+				float: left;
+				width: 25px;
+				height: 25px;
+				background-image: url(images/star.png);
+				background-repeat: no-repeat;
+				cursor: pointer;
+				position: relative;
+				top: 8px;
+			}
+			i{
+				color: red;
+			}
+			p{
+				width: 200px;
+				position: relative;
+			}
+			.active{
+				background-position-y: -25px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<span>点击星星就能评分</span>
+			<!--五颗星星-->
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<!--点击之后显示信息-->
+			<span id="sp1"></span>
+			<!--鼠标在华东的过程中显示信息-->
+			<p></p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//创建一个数组,用于保存评论的数据
+		var msg = [
+				'很不满意|差的太离谱,与卖家描述的严重不符,非常不满',
+				'不满意|部分有破损,与卖家描述的不符,不满意',
+				'一般|质量一般,没有卖家描述的那么好',
+				'满意|质量不错,与卖家描述的基本一致,还是挺满意的',
+				'非常满意|质量非常好,与卖家描述的完全一致,非常满意'
+		];
+		var score = -1;
+		//1.鼠标在上方的时候,获取li的索引值
+		//2.让当前li前面的所有li,都处于点亮状态
+		//3.通过li的索引值从数组中获取对应的数据
+		$('li').on({
+			mouseover:function(){				
+				$.aa($(this).index());
+				var htmlStr = '<i>' + ($(this).index()+1) + '分 ' + msg[$(this).index()].split('|')[0] + '</i>' + '<br />'  + msg[$(this).index()].split('|')[1];
+				//$('p').html(htmlStr);
+				var left = 126 +$(this).index()*25
+				$('p').css('left',left).html(htmlStr)
+			},
+			click:function(){
+				var htmlStr = '<i>' + ($(this).index()+1) + '分 ' +  '</i>' + msg[$(this).index()].split('|')[1];
+				$('#sp1').html(htmlStr );
+				$('p').empty();                            //清空p标签中所有的子元素
+				score=$(this).index()
+			},
+			mouseout:function(){
+				$.aa(score);
+				$('p').empty();
+			}
+		})
+		//把相同的功能和逻辑的代码封装到一个函数当中
+		$.aa = function(index){
+			for(var i = 0; i<$('li').length;i++){
+				if(i<=index){
+					$('li').eq(i).addClass('active')
+				}else{
+					$('li').eq(i).removeClass('active')
+				}
+			}
+		}
+	</script>
+</html>

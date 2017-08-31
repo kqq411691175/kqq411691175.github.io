@@ -1,0 +1,32 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+	display: inline-block;
+}
+div{
+	width: 700px;
+	margin: 20px auto;
+}
+li{
+	float: left;
+	width: 25px;
+	height: 25px;
+	background-image: url(../images/star.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	position: relative;
+	top: 8px;
+}
+i{
+	color: red;
+}
+p{
+	width: 200px;
+	position: relative;
+}
+.active{
+	background-position-y: -28px;
+}

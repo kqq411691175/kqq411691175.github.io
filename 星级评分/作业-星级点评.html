@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>星级点评</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<style type="text/css">
+			ul,li,p{
+				margin: 0;
+				padding: 0;
+			}
+			#star{
+				position: relative;
+			}
+			#star span{
+				float: left;
+			}
+			#star ul{
+				float: left;
+				margin: 0 10px;
+			}
+			#star li{
+				background-image: url(img/star.png);
+				width: 24px;
+				height: 24px;
+				background-repeat: no-repeat;
+				float: left;
+				list-style: none;
+			}
+			#star p{
+				position: absolute;
+				top: 20px;
+				width: 150px;
+				left: 130px;
+				border: 1px solid #00BFFF;
+				padding: 8px;
+				display: none;
+			}
+			.show{
+				background-position: 0 -28px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div id="star">
+			<span>点击星星进行评分</span>
+			<ul>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+			</ul>
+			<!--用来显示最终评分结果用的-->
+			<span id="span"></span>
+			
+			<!--用来显示评分时当前的评语-->
+			<p></p>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	
+	// 用来记录鼠标点击了第几个星星
+	var isStar = 0;
+	
+	var msg = [
+		'一星',
+		'二星',
+		'一般;质量一般,价格昂贵,物流太慢,尺寸不标准,回复太慢',
+		'满意;客服声音好听,商品很喜欢,价格合理,质量还不错',
+		'很满意;返现力度大,卖家服务态度非常好,售后服务好,跟机器人一样一问问题就秒回'
+	];
+	// each() 遍历
+	$('#star ul li').each(function(index){
+		// $(this)当前执行方法的jq对象
+		$(this).mouseover(function(){
+			myShow(index + 1);
+			$('p').text(msg[index])
+			$('#star p').show();
+		});
+		// 鼠标移开的事件
+		$(this).mouseout(function(){
+			$('#star p').hide();
+			myShow(isStar);
+		});	
+		
+		// 点击星星的事件
+		$(this).click(function(){
+			isStar = index + 1;
+			$('#span').text(msg[index]);
+		});
+	});
+	
+	
+	
+	// num表示所选中的是第几个星星
+	function myShow(num){
+		for(var i = 0; i < $('#star ul li').length; i++)
+		{
+//			$('#star ul li').get(i).className = i < num ? 'show' : ''
+
+			if(i < num){
+				$('#star ul li').get(i).className = 'show';
+			}
+			else{
+				$('#star ul li').get(i).className = '';
+			}
+		}
+	}
+	
+</script>
