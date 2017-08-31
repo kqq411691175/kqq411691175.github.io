@@ -16,6 +16,10 @@ function Circleball(num,size,r,turn,degn){
 Circleball.prototype.render = function(){
 	for(var i=0;i<this.num;i++){
 		$('body').append('<div class="ball"></div>');
+		$('.ball').css({
+			'font-size':this.size/2,
+			'line-height':this.size+'px'
+		})
 		$('.ball').eq(i).css({
 			'width':this.size,
 			'height':this.size,
