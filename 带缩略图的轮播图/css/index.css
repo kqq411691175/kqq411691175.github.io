@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body {
+	font-size: 13px;
+}
+
+
+/* 总体样式 */
+
+
+/* zoombox 684*394 */
+
+.zoombox {
+	width: 686px;
+	margin: 20px auto 0 auto;
+}
+
+
+/*上面的大图*/
+
+.zoombox .zoompic {
+	border: 1px solid #dfdfdf;
+	width: 684px;
+	height: 394px;
+	/* 网络请求标示符 */
+	/*background: url(pics/arrow-btn.png) no-repeat 50% 50%;*/
+}
+
+
+/* 下面的缩略图 115*74*/
+
+.zoombox .sliderbox {
+	height: 76px;
+	overflow: hidden;
+	margin-top: 7px;
+}
+
+.zoombox .sliderbox .arrow-btn {
+	width: 38px;
+	height: 76px;
+	background: url(../img/arrow-btn.png) no-repeat;
+	cursor: pointer;
+}
+
+.zoombox #btn-left {
+	float: left;
+}
+
+
+/* 不能被点击 */
+
+.zoombox #btn-left.disabled {
+	background-position: 0 -76px;
+}
+
+.zoombox #btn-right {
+	float: right;
+	background-position: -38px 0;
+}
+
+
+/* 不能被点击 */
+
+.zoombox #btn-right.disabled {
+	background-position: -38px -76px;
+}
+
+
+/* 下面中间的缩略图 */
+
+.zoombox .slider {
+	float: left;
+	height: 76px;
+	width: 606px;
+	margin-left: 4px;
+	position: relative;
+	overflow: hidden;
+	display: inline;
+}
+
+.sliderbox .slider ul {
+	position: absolute;
+}
+
+.sliderbox .slider li {
+	float: left;
+	width: 121px;
+	text-align: center;
+}
+
+.sliderbox .slider li img {
+	border: 1px solid white;
+}
+
+.sliderbox .slider li.current img {
+	border-color: #627598;
+}
