@@ -1,0 +1,55 @@
+#slideBox {
+	border: 1px solid red;
+	position: relative;
+	margin: 20px auto;
+}
+
+.imgBox {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#slideBox img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+#slideBox img.show {
+	display: inline-block;
+}
+
+.indicators {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
+
+.buttons {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	cursor: pointer;
+}
+
+#slideBox span {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-color: orange;
+	border: 1px solid orange;
+	cursor: pointer;
+	margin-right: 1px;
+	text-align: center;
+	line-height: 23px;
+}
+
+#slideBox span.current {
+	border: 1px solid red;
+}
