@@ -1,0 +1,42 @@
+table {
+	margin: 0 auto;
+	text-align: center;
+}
+
+td {
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	box-sizing: border-box;
+	background-color: lightgray;
+	position: relative;
+}
+
+th {
+	border: none;
+	font-size: 50px;
+	line-height: 100px;
+}
+
+img {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.in {
+	animation: xuanzhuan 1s linear 1;
+}
+
+.im {}
+
+@keyframes xuanzhuan {
+	from {
+		transform: rotate(0)scale(0);
+	}
+	to {
+		transform: rotate(360deg)scale(1);
+	}
+}

@@ -1,0 +1,22 @@
+body {
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+}
+/*设置隐藏*/
+
+.chooseImg input {
+	display: none;
+}
+
+img {
+	width: 100px;
+	height: auto;
+}
+
+input[type=button] {
+	background-color: orange;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+}
