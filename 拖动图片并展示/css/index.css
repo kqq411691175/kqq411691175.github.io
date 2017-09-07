@@ -1,0 +1,17 @@
+main {
+	width: 400px;
+	height: 400px;
+	border: 2px lightgray dashed;
+	color: gray;
+	text-align: center;
+	line-height: 400px;
+}
+
+input {
+	display: none;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}

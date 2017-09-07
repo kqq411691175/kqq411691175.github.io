@@ -1,0 +1,20 @@
+.clockBox{
+	display: inline-block;
+	width: 220px;
+	height: 100px;
+	position: absolute;
+	top: 30px;
+	left: calc(50% - 110px);
+	background-color: black;
+	color: red;
+	padding: 10px;
+}
+.clockBox p{
+	text-align: center;
+	line-height: 30px;
+}
+.clockBox span{
+	background-color: white;
+	color: black;
+	padding: 0 5px;
+}

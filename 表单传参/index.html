@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="柯清荃"/>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<title>表单传参</title>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="10">
+			<tr>
+				<td>html5</td>
+				<td>1.1.1.1</td>
+				<td>153798</td>
+				<td onclick='edit(this)'>编辑</td>
+			</tr>
+			<tr>
+				<td>CSS3</td>
+				<td>2.2.2.2</td>
+				<td>153026</td>
+				<td onclick='edit(this)'>编辑</td>
+			</tr>
+			<tr>
+				<td>jQuery</td>
+				<td>3.3.3.3</td>
+				<td>153504</td>
+				<td onclick='edit(this)'>编辑</td>
+			</tr>
+		</table>
+		<div id="dialog" class="custom hidden">
+			<form action="" method="get">
+				<p>主机名:<input type="text" id="hostname"/></p>
+				<p>ip地址:<input type="text" id="ip"/></p>
+				<p>端口号:<input type="text" id="port"/></p>
+				<input type="button" name="" id="" value="确定" onclick="submitForm()" />
+				<input type="button" name="" id="" value="取消" onclick="cancel()" />
+			</form>
+		</div>
+	</body>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

@@ -1,0 +1,39 @@
+section {
+	width: 180px;
+	height: 180px;
+	border: 1px solid black;
+	box-sizing: border-box;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	background-color: cyan;
+}
+
+div {
+	width: 360px;
+	height: 150px;
+	position: relative;
+	left: 0px;
+}
+
+img {
+	float: left;
+}
+
+.p1 {
+	line-height: 30px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: -20px;
+	background-color: cyan;
+}
+
+.p2 {
+	line-height: 30px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: -50px;
+	background-color: cyan;
+}
