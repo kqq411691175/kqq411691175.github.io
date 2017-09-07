@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			
+			*{
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			/* 延时加载的外层*/
+			#photo{
+				width: 900px;
+				margin: 0 auto;
+				padding-top: 10px;
+			}
+			#photo dl{
+				width: 225px;
+				height: 270px;
+				float: left;
+				margin: 5px 0px 15px 0px;
+			}
+			#photo dl dt{
+				width: 200px;
+				height: 250px;
+				margin: 0 auto;
+			}
+			#photo dl dt img{
+				cursor: pointer;
+				display: block;
+			}
+			#photo dl dd{
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+			}
+			section{
+				width: 600px;
+				height: 500px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+				z-index: 2000;
+			}
+			header{
+				width: 100%;
+				height: 50px;
+				background-color: lightgrey;
+				text-align: center;
+				font-size: 20px;
+				line-height: 50px;
+				position: relative;
+			}
+			button{
+				position: absolute;
+				top: 15px;
+				left: 570px;
+				background-color: orange;
+				line-height: 20px;
+				padding: 5px;
+			}
+			section div{
+				width: 600px;
+				height: 450px;
+				background-image: url(img/p1big.jpg);
+			}
+			#screen{
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: black;
+				opacity: 0.4;
+				z-index: 1000;
+				width: 100%;
+				height: 100%;
+				display: none;
+			}
+			section span{
+				font-size: 50px;
+				padding: 20px;
+				background-color: gray;
+				opacity: 0.8;
+				color: white;
+				line-height: 90px;
+				position: absolute;
+				display: none;
+			}
+			#leftsp{
+				top: 200px;
+				left: 0px;
+			}
+			#rightsp{
+				top: 200px;
+				left: 523px;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="login">
+			<header>图片预加载<button id="cancle">X</button></header>
+			<div id="bd">
+				<span id="leftsp"><</span>
+				<span id="rightsp">></span>
+			</div>
+		</section>
+		<div id="screen"></div>
+		<!-- 空白区域 -->
+		<div id='content' style="width: 1000px;height: 1000px;margin: 0 auto;background-color: #00BFFF;"></div>
+		
+			
+		<!--div#photo>(dl>dt>img[xsrc="img/p$@.jpg" bigsrc="img/p$@big.jpg" src="img/wait_load.jpg" class="wait_load"]^+dd{延时加载图片})*12-->
+		<!--图片延时加载(图片占位)-->
+		<div id="photo">
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p1.jpg" bigsrc="img/p1big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p2.jpg" bigsrc="img/p2big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p3.jpg" bigsrc="img/p3big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p4.jpg" bigsrc="img/p4big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p5.jpg" bigsrc="img/p5big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p6.jpg" bigsrc="img/p6big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p7.jpg" bigsrc="img/p7big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p8.jpg" bigsrc="img/p8big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p9.jpg" bigsrc="img/p9big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p10.jpg" bigsrc="img/p10big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p11.jpg" bigsrc="img/p11big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img src="img/wait_load.jpg" alt="" xsrc="img/p12.jpg" bigsrc="img/p12big.jpg" class="wait_load" /></dt>
+				<dd>延时加载图片</dd>
+			</dl>
+		</div>
+		
+		<div style="clear: both;"></div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$('.wait_load').css('opacity','0');
+			function waitLoad(){
+				setTimeout(function(){
+					$('.wait_load').each(function(){
+						if($(window).height() + $(document).scrollTop()>=$(this).offset().top){
+							$(this).attr('src',$(this).attr('xsrc')).animate({opacity:1},1000)
+						}
+					})
+				},1000);
+			}
+			$(document).on('scroll',waitLoad);
+			$(window).on('resize',waitLoad);
+			
+			 getScreenWH();
+			function getScreenWH(){                        //获取窗口的宽高
+				var w = $(window).width() + $(document).scrollLeft();
+				var h = $(window).height() + $(document).scrollTop();
+				$('#screen').width(w).height(h);          //对挡板的宽高进行赋值
+			}
+			loginCenter();
+			function loginCenter(){                       //保证弹出框弹出的位置在窗口的中间
+				var left = ($(window).width() - $('#login').width())/2 + $(window).scrollLeft()
+				var top = ($(window).height() - $('#login').height())/2 + $(window).scrollTop()
+				$('#login').css({top:top,left:left});
+			}
+			//当窗口发生调整的时候
+			$(window).resize(function(){
+				getScreenWH();
+				loginCenter();
+			})
+			//当文档进行滚动的时候
+			$(document).scroll(function(){
+				getScreenWH();
+				loginCenter();
+			})
+			//点击关闭按钮关闭弹出框和挡板
+			$('#cancle').click(function(){
+				$('#screen').fadeOut(1000)
+				$('#login').fadeOut(1300)
+				//允许用户滚动
+				document.documentElement.style.overflow = 'auto';
+			})
+			//点击每张图片弹出弹出框和挡板
+			var x =0;
+			$('.wait_load').each(function(){
+				$(this).click(function(){
+					//获取这张图片的index
+					x = $(this).parents('dl').index()
+					$('#screen').fadeIn(1000)
+					$('#login').fadeIn(1300)
+					//禁止用户滚动
+					document.documentElement.style.overflow = 'hidden'         //溢出部分隐藏	
+					//显示对应的大图到弹出框中
+					$('#bd').css('background-image','url('+$(this).attr('bigsrc')+')')
+					
+				})
+			})
+			$('#login').mousemove(function(event){
+				if(event.pageX>952){
+					$('#leftsp').hide()
+					$('#rightsp').show()
+				}
+				if(event.pageX<952){
+					$('#leftsp').show()
+					$('#rightsp').hide()
+				}
+			})
+			$('#login').mouseout(function(){
+				$('#leftsp').hide()
+				$('#rightsp').hide()
+			})
+		//拖拽提示框 不能超出当前文档范围
+			$('#login').mousedown(function(event){
+				//获取鼠标在当前div中的位置
+				var distanceX = event.offsetX;
+				var distanceY = event.offsetY;
+				$(this).css('cursor','move');
+				console.log('distanceX:%d  distanceY:%d',distanceX,distanceY);
+				$('#login').mousemove(function(e){
+					var left = e.clientX -distanceX + $(document).scrollLeft();
+					var top = e.clientY -distanceY + $(document).scrollTop();
+					if(left<$(document).scrollLeft()){
+						left=$(document).scrollLeft();
+					}
+					else if(left>$(document).scrollLeft() + $(window).width()-$(this).outerWidth())
+					{
+						
+						left=$(document).scrollLeft() + $(window).width()-$(this).outerWidth();
+					}
+					if(top<$(document).scrollTop()){
+						top = $(document).scrollTop() ;
+					}
+					else if(top>$(document).scrollTop() + $(window).height()-$(this).outerHeight()){
+						
+						top=$(document).scrollTop() + $(window).height()-$(this).outerHeight();
+					}					
+					$(this).css({
+						left:left + 'px',
+						top:top + 'px'
+					})		
+				})			
+			})
+			$('#login').mouseup(function(){
+				$(this).css('cursor','default');
+				$(this).off('mousemove');
+				
+				$('#login').mousemove(function(event){
+					if(event.pageX>952){
+						$('#leftsp').hide()
+						$('#rightsp').show()
+					}
+					if(event.pageX<952){
+						$('#leftsp').show()
+						$('#rightsp').hide()
+					}
+				})
+				$('#login').mouseout(function(){
+					$('#leftsp').hide()
+					$('#rightsp').hide()
+				})
+			})
+			//点击上一张按钮展示上一张图片
+					$('#leftsp').click(function(){
+						x = x - 1;
+						if(x<0){
+							x = 11;
+						}
+						var Le = $('dl').eq(x).find('img').attr('bigsrc')
+						$('#bd').css('background-image','url('+Le+')')
+					})
+					//点击下一张按钮展示上一张图片
+					$('#rightsp').click(function(){
+						x = x + 1;
+						if(x>11){
+							x = 0;
+						}
+						var Le = $('dl').eq(x).find('img').attr('bigsrc')
+						$('#bd').css('background-image','url('+Le+')')
+					})
+
+		})
+	</script>
+</html>
