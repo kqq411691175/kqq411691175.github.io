@@ -1,0 +1,38 @@
+CACHE MANIFEST
+
+# 第二步
+# 井号为注释符号
+# 2017-08-23 v2.1.0
+
+# 缓存文件列表
+CACHE:
+index.html
+images/0.jpg
+images/1.jpg
+images/2.jpg
+images/3.jpg
+images/complete.jpg
+images/timeout.jpg
+jquery/jquery.js
+jquery/jquery.fullscreen.js
+js/Music.js
+js/Scene.js
+js/StartScene.js
+js/GameScene.js
+js/GameData.js
+js/Timer.js
+js/TimeoutScene.js
+js/CompleteScene.js
+mp3/a.mp3
+mp3/click.mp3
+mp3/complete.mp3
+mp3/pass.mp3
+mp3/timeout.mp3
+
+# 不缓存的文件列表
+NETWORK:
+index.manifest
+
+# 离线失败时显示的页面
+FALLBACK:
+html/index.html

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- 第一步： -->
+<html manifest="index.manifest">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>大家来找茬</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			body {
+				margin: 0;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			#game {
+				flex-shrink: 0;
+				width: 600px;
+				height: 400px;
+				cursor: pointer;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.mark {
+				border-radius: 50%;
+				border: solid 5px red;
+				animation-name: popov;
+				animation-duration: 0.5s;
+				animation-fill-mode: both;
+				animation-timing-function: linear;
+			}
+			
+			@keyframes popov {
+				0% {
+					transform: scale(0.5);
+				}
+				10% {
+					transform: scale(1.5);
+				}
+				30% {
+					transform: scale(0.7);
+				}
+				60% {
+					transform: scale(1.2);
+				}
+				80% {
+					transform: scale(0.9);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			
+			#difCount,
+			#timeout {
+				position: absolute;
+				left: 370px;
+				top: 335px;
+				font-size: 20px;
+				font-weight: bold;
+				color: white;
+			}
+			
+			#timeout {
+				left: 185px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<audio src="mp3/a.mp3" autoplay loop></audio>
+		<audio src="mp3/click.mp3"></audio>
+		<audio src="mp3/complete.mp3"></audio>
+		<audio src="mp3/pass.mp3"></audio>
+		<audio src="mp3/timeout.mp3"></audio>
+		<div id="game">
+			<p id="difCount"></p>
+			<p id="timeout"></p>
+
+		</div>
+	</body>
+	<script src="jquery/jquery.js"></script>
+	<script src="jquery/jquery.fullscreen.js"></script>
+	<script src="js/Music.js"></script>
+	<script src="js/Scene.js"></script>
+	<script src="js/StartScene.js"></script>
+	<script src="js/GameScene.js"></script>
+	<script src="js/GameData.js"></script>
+	<script src="js/Timer.js"></script>
+	<script src="js/TimeoutScene.js"></script>
+	<script src="js/CompleteScene.js"></script>
+	<script>
+		//初始化声音
+		var soundControl = new Music();
+
+		//初始化开始场景
+		var currentScene = new StartScene();
+		currentScene.show();
+
+		$("#game").click(function(e) {
+			soundControl.playClick();
+
+			currentScene.click(e.offsetX, e.offsetY);
+		});
+
+		//定时器对象
+		var timer = new Timer();
+
+		//用一个变量记录当前关卡
+		var currentSatge = 0;
+		//进入游戏场景
+		function gotoGameScene() {
+			currentScene.dismiss();
+
+			var stage = gameData[currentSatge];
+
+			var gs = new GameScene(stage);
+			gs.show();
+
+			currentScene = gs;
+		}
+
+		//进入超时场景
+		function gotoTimeoutScene() {
+			currentScene.dismiss();
+			var ts = new TimeoutScene();
+			ts.show();
+			currentScene = ts;
+			clearRedCircle();
+		}
+
+		//进入下一关
+		function gotoNextScene() {
+			clearRedCircle();
+			currentSatge++;
+			if(currentSatge < gameData.length) {
+				//进入下一关
+				gotoGameScene();
+			} else {
+				//进入通关场景
+				currentSatge = 0;
+				gotoCompleteScene();
+			}
+		}
+
+		//进入通关场景
+		function gotoCompleteScene() {
+			currentScene.dismiss();
+			var cs = new CompleteScene();
+			cs.show();
+			currentScene = cs;
+		}
+
+		//清除屏幕上的红圈
+		function clearRedCircle() {
+			$(".mark").remove();
+		}
+
+		// 第三步:
+		// 文件改变，你让用户自己去手动清除缓存(不现实),
+		// 我们是用户也不会去清除的
+		// 如果 index.manifest 文件发生了改变，就会自动
+		// 执行下面的监听方法
+		window.applicationCache.addEventListener('updateready', function() {
+			//			console.log('index.manifest 文件发生了改变');
+			if(window.applicationCache.status == window.applicationCache.UPDATEREADY)
+			  {
+			  	if(confirm('新版本发布了，是否现在更新最新版本?')){
+			  		// 更新替换缓存
+			  		window.applicationCache.update();
+			  		// 刷新页面
+			  		window.location.reload();
+			  	}
+			  	
+			  }
+					
+				
+		});
+	</script>
+
+</html>
